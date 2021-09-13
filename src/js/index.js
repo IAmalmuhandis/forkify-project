@@ -50,3 +50,9 @@ elements.searchResPages.addEventListener("click", (e) => {
 /**
  * RECIPE CONTROLLER
  */
+const controlRecipe = () => {
+  const id = window.location.hash;
+  console.log(id);
+};
+
+window.addEventListener("hashchange", controlRecipe);
