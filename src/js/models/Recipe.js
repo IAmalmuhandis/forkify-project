@@ -28,4 +28,13 @@ export default class Recipe {
   calcServings() {
     this.servings = 4;
   }
+  parseIngredients() {
+    const newIngredients = this.ingredients.map((el) => {
+      // 1. uniform units 
+
+      // 2. Remove parenthesis
+
+      // 3.     });
+    this.ingredients = newIngredients;
+  }
 }
