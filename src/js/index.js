@@ -107,6 +107,14 @@ const controlList = () => {
     listView.renderItem(item);
   });
 };
+const controlList2 = () => {
+  // 1. create a new list if there is none yet
+  if (!state.list) state.list = new List();
+  // 2. add each ingredient to the list and UI
+
+  const item = state.list.addManuallyList();
+  listView.renderItem(item);
+};
 
 /***
  * LIKES CONTROLLER
@@ -162,13 +170,16 @@ elements.shopping.addEventListener("click", (e) => {
 // Restore liked recipes on page load
 window.addEventListener("load", () => {
   state.likes = new Likes();
+  state.list = new List();
   // restore likes
   state.likes.readStorage();
+  state.list.readStorage();
   // togglee like menu button
   likesView.toggleLikeMenu(state.likes.getNumLikes());
 
   // render the existing likes
   state.likes.likes.forEach((like) => likesView.renderLike(like));
+  state.list.items.forEach((item) => listView.renderItem(item));
 });
 
 // handling recipe button clicks
@@ -189,5 +200,17 @@ elements.recipe.addEventListener("click", (e) => {
   } else if (e.target.matches(".recipe__love, .recipe__love *")) {
     // Like controller
     controlLike();
+  }
+});
+//  handling list button clicks
+elements.shoppingList.addEventListener("click", (e) => {
+  // delete from state
+
+  // delete from UI
+  if (e.target.matches(".delete_all, .delete_all *")) {
+    listView.deleteAllItem();
+  } else if (e.target.matches(".add__btn")) {
+    controlList2();
+    listView.clearUserIput();
   }
 });

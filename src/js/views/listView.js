@@ -1,4 +1,9 @@
 import { elements } from "./base";
+export const clearUserIput = () => {
+  elements.countInput.value = "";
+  elements.unitInput.value = "";
+  elements.ingredientInput.value = "";
+};
 
 export const renderItem = (item) => {
   const markup = `
@@ -23,4 +28,8 @@ export const renderItem = (item) => {
 export const deleteItem = (id) => {
   const item = document.querySelector(`[data-itemid="${id}"]`);
   if (item) item.parentElement.removeChild(item);
+};
+export const deleteAllItem = () => {
+  const allItems = document.querySelector(".shopping__list");
+  if (allItems) allItems.innerHTML = "";
 };

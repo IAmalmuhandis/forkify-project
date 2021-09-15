@@ -8,6 +8,10 @@ export const elements = {
   shopping: document.querySelector(".shopping__list"),
   likes: document.querySelector(".likes__list"),
   likesMenu: document.querySelector(".likes__field"),
+  shoppingList: document.querySelector(".shopping"),
+  countInput: document.querySelector(".count_input"),
+  unitInput: document.querySelector(".unit_input"),
+  ingredientInput: document.querySelector(".ingredient_input"),
 };
 export const elementStrings = {
   loader: "loader",
